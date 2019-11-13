@@ -20,8 +20,10 @@ Todos os atributos deverão ter get, porém o saldo, o número da conta e CPF n�
 sets públicos.
 */
 
+import java.util.Scanner;
 
 public class Conta{
+    Scanner entrada=new Scanner(System.in);
     
     //Atributos
     int numeroconta;
@@ -39,15 +41,34 @@ public class Conta{
     
     //Metodos
     public boolean Sacar(double saldo, int numeroconta){
-        return true;
+  
+        System.out.println("Digite o valor do saque: ");
+        double saque=entrada.nextDouble();
+        
+        if(saque<=saldo){
+            saldo=-saque;
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     
-    public boolean Depositar(){
-        return true;
+    public boolean Depositar(double saldo){
+        
+        System.out.println("Digite o valor do deposito: ");
+        double deposito=entrada.nextDouble(); 
+        
+        if(deposito>10){
+            saldo += deposito;
+            return true;
+        }else{
+            return false;
+        }
     }
     
     public String imprimir(double saldo, int numeroconta, String nomecliente){
-        return "";
+        return "Olá SR(a) "+nomecliente+"\n Conta: "+numeroconta+"\n Saldo Atual: "+saldo);
     }
     
             
