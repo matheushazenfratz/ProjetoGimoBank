@@ -40,30 +40,30 @@ public class Conta{
     }
     
     //Metodos
-    public boolean Sacar(double saldo, int numeroconta){
+    public double Sacar(double saldo, int numeroconta){
   
         System.out.println("Digite o valor do saque: ");
         double saque=entrada.nextDouble();
         
         if(saque<=saldo){
             saldo=-saque;
-            return true;
+            return saldo;
         }else{
-            return false;
+            return saldo;
         }
         
     }
     
-    public boolean Depositar(double saldo){
+    public doubel Depositar(double saldo){
         
         System.out.println("Digite o valor do deposito: ");
         double deposito=entrada.nextDouble(); 
         
         if(deposito>10){
             saldo += deposito;
-            return true;
+            return saldo;
         }else{
-            return false;
+            return saldo;
         }
     }
     
