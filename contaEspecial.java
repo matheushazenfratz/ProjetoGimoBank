@@ -18,12 +18,18 @@ seja, um construtor recebe os três parâmetros necessários à classe conta, ma
 gerente, e o outro construtor recebe todos esses parâmetros e ainda o limite da conta;
 */
 
-public class contaEspecial {
+public class contaEspecial extends contaCorrente {
     
     //Atributo
     String gerente;
     
     //Construtor
+    public class construtor{
+    contaEspecial Conta = new contaEspecial();
+    contaEspecial.gerente = Marcos;
+    
+            
+            }
     
     //Metodos
     public String getNomeGerente(String gerente){
@@ -33,7 +39,12 @@ public class contaEspecial {
         return this.gerente;
     }
     
-    public String imprimir(double saldo, int numeroconta, String nomecliente, String gerente){
-        return "";
+    public String imprimir(double saldo, int numeroconta, String nomecliente){
+        return "Olá SR(a) "+nomecliente+"\n Conta: "+numeroconta+"\n Saldo Atual: "+saldo+"\n Limite: "+limite+"\n gerente: "+ gerente;
     }
+   
+
+    
+    
 }
+
