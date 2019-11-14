@@ -1,35 +1,75 @@
 
-package com.afreiria.projetogimobank;
-
 /*        
 Classe conta: classe abstrata
 
 Atributos:
-â€¢ NÃºmero da conta;
-â€¢ Nome do cliente;
-â€¢ CPF;
-â€¢ Saldo;
+• Número da conta;
+• Nome do cliente;
+• CPF;
+• Saldo;
 
-MÃ©todos:
-â€¢ public boolean sacar(valorSacado);
-â€¢ public boolean depositar(valorDepositado);
-â€¢ public String imprimir();
+Métodos:
+• public boolean sacar(valorSacado);
+• public boolean depositar(valorDepositado);
+• public String imprimir();
 
-Construtor: que receba o nÃºmero da conta, nome do cliente e CPF;
-Todos os atributos deverÃ£o ter get, porÃ©m o saldo, o nÃºmero da conta e CPF nÃ£o poderÃ£o ter
-sets pÃºblicos.
+Construtor: que receba o número da conta, nome do cliente e CPF;
+Todos os atributos deverão ter get, porém o saldo, o número da conta e CPF não poderão ter
+sets públicos.
 */
 
 import java.util.Scanner;
 
-public class Conta{
-    Scanner entrada=new Scanner(System.in);
+public abstract class Conta {
+	Scanner entrada=new Scanner(System.in);
     
     //Atributos
-    int numeroconta;
-    String nomecliente;
-    String cpf;
-    double saldo;
+    private int numeroconta;
+	private String nomecliente;
+    private String cpf;
+    private double saldo;
+    
+    //getters e setters
+    public Scanner getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(Scanner entrada) {
+		this.entrada = entrada;
+	}
+
+	public int getNumeroconta() {
+		return numeroconta;
+	}
+
+	/*private void setNumeroconta(int numeroconta) {
+		this.numeroconta = numeroconta;
+	}*/
+
+	public String getNomecliente() {
+		return nomecliente;
+	}
+
+	public void setNomecliente(String nomecliente) {
+		this.nomecliente = nomecliente;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	/*private void setCpf(String cpf) {
+		this.cpf = cpf;
+	}*/
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	/*private void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}*/
+	
     
     //Contrutor
     public Conta(int numeroconta, String nomecliente, String cpf){
@@ -54,7 +94,7 @@ public class Conta{
         
     }
     
-    public doubel Depositar(double saldo){
+    public double Depositar(double saldo){
         
         System.out.println("Digite o valor do deposito: ");
         double deposito=entrada.nextDouble(); 
@@ -68,8 +108,8 @@ public class Conta{
     }
     
     public String imprimir(double saldo, int numeroconta, String nomecliente){
-        return "OlÃ¡ SR(a) "+nomecliente+"\n Conta: "+numeroconta+"\n Saldo Atual: "+saldo);
+        return "Olá SR(a) "+nomecliente+"\n Conta: "+numeroconta+"\n Saldo Atual: "+saldo;
     }
-    
-            
+	
+
 }

@@ -1,29 +1,29 @@
 
-package com.afreiria.projetogimobank;
-
 /*
 Classe conta corrente: 
 
-Herda a classe conta, e adiciona as seguintes modifica√ß√µes:
+Herda a classe conta, e adiciona as seguintes modificaÁıes:
 
 Atributos:
-‚Ä¢ Limite;
+ï Limite;
 
-M√©todos:
-‚Ä¢ public boolean usandoLimite() ‚Äì retorna true se o cliente estiver utilizando o limite
-(saldo negativo), e false em caso contr√°rio;
-‚Ä¢ Reimplementa√ß√£o do sacar, que deve considerar o limite ‚Äì mesma assinatura do
-m√©todo original, apenas com reimplementa√ß√£o;
-‚Ä¢ Mudan√ßas no imprimir, que deve retornar tamb√©m o limite da conta;
-Construtor: gera dois construtores: um que recebe apenas os par√¢metros necess√°rios ao
-construtor da classe conta, e outro que recebe os mesmos par√¢metros mais o limite da conta.
-Classe conta poupan√ßa: Herda a classe conta, e n√£o adiciona atributos.
-M√©todos:
-‚Ä¢ public void calculaRendimento(porcentagemRendimento): aplica o valor de rendimento
-recebido por par√¢metro ao saldo da conta;
+MÈtodos:
+ï public boolean usandoLimite() ñ retorna true se o cliente estiver utilizando o limite
+(saldo negativo), e false em caso contr·rio;
+
+ï ReimplementaÁ„o do sacar, que deve considerar o limite ñ mesma assinatura do
+mÈtodo original, apenas com reimplementaÁ„o;
+ï MudanÁas no imprimir, que deve retornar tambÈm o limite da conta;
+
+Construtor: gera dois construtores: um que recebe apenas os par‚metros necess·rios ao
+construtor da classe conta, e outro que recebe os mesmos par‚metros mais o limite da conta.
+
 */
 
+import java.util.Scanner;
+
 public class contaCorrente {
+	Scanner entrada=new Scanner(System.in);
     
     //atributos
     double limite;
@@ -36,18 +36,37 @@ public class contaCorrente {
     
     
     // Metodos
-    public boolean usandoLimite(){
+    public boolean usandoLimite(double saldo){
+        if(limite<saldo) {
+        	return true;
+        }else {
+        return false;
+        }
+    }
+    
+    public double Sacar(double saldo, int numeroconta){
+    	  
+        System.out.println("Digite o valor do saque: ");
+        double saque=entrada.nextDouble();
         
-        return true;
+        if(saldo == limite || saldo > limite) {
+        	if(saque<=saldo){
+                saldo=-saque;
+                return saldo;
+            }else{
+                return saldo;
+            }
+        }else {
+        	System.out.println("Limite insuficiente!");
+        	return limite;
+        }
+        
     }
     
-    public boolean Sacar(double saldo, int numeroconta, double limite){
-        return true;
-    }
-    
-    public String imprimir(double saldo, int numeroconta, String nomecliente, double limite){
-        return "";
+    public String imprimir(double saldo, int numeroconta, String nomecliente){
+        return "Ol· SR(a) "+nomecliente+"\n Conta: "+numeroconta+"\n Saldo Atual: "+saldo+"\n Limite: "+limite;
     }
     
     
 }
+
